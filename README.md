@@ -35,9 +35,7 @@ entry in `places.json`.  This is safe to do multiple times, it won't
 overwrite extracted data, but will add new entries/files if necessary.
 
 Now you need to use PageShot to fetch data.  Check out [PageShot from
-GitHub](https://github.com/mozilla-services/pageshot) (maybe the
-`headless-activity-stream-helper` branch until
-[#1248](https://github.com/mozilla-services/pageshot/pull/1248) lands). 
+GitHub](https://github.com/mozilla-services/pageshot)
 
 PageShot should be running with your normal profile.  So close Firefox, and
 copy your profile into the PageShot checkout, like:

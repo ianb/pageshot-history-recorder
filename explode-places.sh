@@ -35,8 +35,10 @@ import sha
 output_dir = sys.argv[1]
 
 data = json.load(sys.stdin)
+
 for page in data:
-    url = page["url"]
+  try:
+    url = page["url"].encode("ascii", errors="ignore")
     fn = os.path.join(output_dir, sha.new(url).hexdigest())
     if os.path.exists(fn):
         with open(fn) as fp:
@@ -44,5 +46,8 @@ for page in data:
         existing.update(page)
         page = existing
     with open(fn, "w") as fp:
-        fp.write(json.dumps(page, indent=2))
+        fp.write(json.dumps(page, indent=2).encode("UTF-8"))
+  except:
+    print page
+    raise
 ' "$output"
